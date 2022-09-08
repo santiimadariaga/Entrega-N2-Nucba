@@ -15,41 +15,38 @@ const arrayDePizzas = [
     id: 1,
     nombre: "Napolitana",
     ingredientes: "Queso, Tomate y Jamon",
-    precio: 350,
+    precio: 1000,
   },
   {
     id: 2,
     nombre: "Jamon y Morron",
     ingredientes: "Jamon, Morron y Aceitunas",
-    precio: 400,
+    precio: 1200,
   },
   {
     id: 3,
     nombre: "Cebolla y Queso",
     ingredientes: "Cebolla, Queso y Oregano",
-    precio: 450,
+    precio: 1250,
   },
-  { id: 4, nombre: "Roquefort", ingredientes: "Queso Roquefort", precio: 500 },
+  { id: 4, nombre: "Roquefort", ingredientes: "Queso Roquefort", precio: 1100 },
   {
     id: 5,
     nombre: "Cuatro Quesos",
     ingredientes: "Quesos Parmesano, Roquiefort, Reggianato y Provolone",
-    precio: 550,
+    precio: 1300,
   },
   {
     id: 6,
     nombre: "Palmito",
     ingredientes: "Queso, Jamon y Palmitos",
-    precio: 600,
+    precio: 1400,
   },
 ];
 
 const renderPizza = (arr) => {
-  namePizza.innerHTML = `<h2 id="h2">${arr.nombre}</h2>`;
-  // YA INTENTE CON TEXT CONTENT Y NO SE CUAL ES EL ERROR QUE DA UNDEFINED
-  console.log(namePizza);
-  pricePizza.textContent = `${arr.precio.toString()}`;
-  console.log(pricePizza);
+  namePizza.textContent = `${arr.nombre.toString()}`;
+  pricePizza.textContent = `$${arr.precio.toString()}`;
 };
 
 const resetInput = () => {
@@ -61,9 +58,9 @@ const init = (e) => {
 
   const inputValue = input.value.trim();
 
-  const arrayFiltered = arrayDePizzas.filter((num) => num.id === +inputValue);
+  const arrayFinded = arrayDePizzas.find((num) => num.id === +inputValue);
 
-  renderPizza(arrayFiltered);
+  renderPizza(arrayFinded);
 
   resetInput();
 };

@@ -58,9 +58,14 @@ const init = (e) => {
 
   const inputValue = input.value.trim();
 
-  const arrayFinded = arrayDePizzas.find((num) => num.id === +inputValue);
+  if (inputValue <= 6 && inputValue > 0) {
+    const arrayFinded = arrayDePizzas.find((num) => num.id === +inputValue);
 
-  renderPizza(arrayFinded);
+    renderPizza(arrayFinded);
+  } else {
+    namePizza.textContent = `Por favor ingrese un menú válido`;
+    pricePizza.textContent = "";
+  }
 
   resetInput();
 };
